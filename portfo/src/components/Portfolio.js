@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
-import Resume from './pages/Resume';
-import About from './pages/About';
-import Blog from './pages/Projects';
-import Contact from './pages/Contact';
-import Footer from './pages/Footer';
+import About from './About';
+import Blog from './Portfolio';
+import Contact from './Contact';
+import Header from './Header';
+import Footer from './Footer';
 import { BrowserRouter as Router} from 'react-router-dom';
 
 
@@ -20,7 +20,7 @@ export default function PortfolioContainer() {
     if (currentPage ==='Contact') {
       return <Contact />;
     }
-    return <Resume />;
+    return <Header/>;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -28,7 +28,7 @@ export default function PortfolioContainer() {
   return (
     <Router>
       <div>
-        <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
+        <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
         {renderPage()}
           <Footer />
       </div>
